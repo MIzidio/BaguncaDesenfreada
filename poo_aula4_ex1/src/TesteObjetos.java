@@ -18,6 +18,10 @@ public class TesteObjetos {
 		lista.imprimeLista();
 		lista.inserirItem(1);
 		lista.imprimeLista();
+		lista.inserirItem(4);
+		lista.imprimeLista();
+		lista.inserirItem(12);
+		lista.imprimeLista();
 
 	}
 

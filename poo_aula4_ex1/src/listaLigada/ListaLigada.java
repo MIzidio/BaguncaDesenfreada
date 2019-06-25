@@ -71,19 +71,26 @@ public class ListaLigada {
 	
 	public void inserirItem(int item) {
 		
-		LinkedNode atual = first;
-		if(first != null && first.data > item) {
-			atual.next = first;
-			first.data = item;
+		LinkedNode novoNo = new LinkedNode();
+		novoNo.data = item;
+		novoNo.next = null;
+		
+		if(first == null) {
+			first = novoNo;
+		} else if (first.data > item) {
+			novoNo.next = first;
+			first = novoNo;
+		} else {
+			
+			LinkedNode atual = first;
+			while(atual.next != null && atual.next.data <= item) 
+				atual = atual.next;
+			
+			novoNo.next = atual.next;
+			atual.next = novoNo;
 		}
 		
-		while(atual.next != null && atual.next.data > item) {
-			atual.next = atual;
-			atual.data = item;
-		}
 		
-		if(atual.next == null)
-			atual.next.data = item;
 	}
 
 }
